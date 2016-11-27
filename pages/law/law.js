@@ -1,8 +1,15 @@
 // pages/law/law.js
+import lawService from '../../services/law.service'
+
 Page({
   data:{},
-  onLoad:function(options){
-    // 页面初始化 options为页面跳转所带来的参数
+  onLoad:function(params){
+    // 页面初始化 params为页面跳转所带来的参数
+     lawService.getLawById(params.id).then((res) => {
+        let law = res.data.result.value
+        console.log(law)
+        this.setData({law: law})
+     })
   },
   onReady:function(){
     // 页面渲染完成

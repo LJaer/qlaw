@@ -1,8 +1,14 @@
 // pages/index/index.js
+import lawService from '../../services/law.service'
+
 Page({
   data:{},
   onLoad:function(options){
     // 页面初始化 options为页面跳转所带来的参数
+    lawService.getLawTypes().then((res) => {
+      var lawTypes = res.data.result.value
+      this.setData({lawTypes: lawTypes})
+    })
   },
   onReady:function(){
     // 页面渲染完成

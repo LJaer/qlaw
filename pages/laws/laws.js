@@ -1,8 +1,22 @@
 // pages/laws/laws.js
+import lawService from '../../services/law.service'
+
 Page({
   data:{},
-  onLoad:function(options){
-    // 页面初始化 options为页面跳转所带来的参数
+  onLoad:function(params){
+    // 页面初始化 params为页面跳转所带来的参数
+    let searchText = params.search
+    let type = params.type
+
+    if (searchText) {
+      this.setData({search: searchText})
+      this.search(searchText)
+    } else {
+      lawService.getLawsByType(type).then((res) => {
+        let laws = res.data.result.value.laws
+        this.setData({list: laws})
+      })
+    }
   },
   onReady:function(){
     // 页面渲染完成
