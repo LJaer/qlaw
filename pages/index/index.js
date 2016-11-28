@@ -1,25 +1,26 @@
 // pages/index/index.js
-import lawService from '../../services/law.service'
-
 Page({
-  data:{},
+  data:{
+
+  },
+  //options是传递过来的参数
   onLoad:function(options){
-    // 页面初始化 options为页面跳转所带来的参数
-    lawService.getLawTypes().then((res) => {
-      var lawTypes = res.data.result.value
-      this.setData({lawTypes: lawTypes})
+    let that = this
+    wx.request({
+      url: 'https://api.wxappclub.com/get',
+      data: {
+        "appkey": "e8aukil676kq5fncqsi29u3a6tldicgq",
+        "key": "types",
+        "type": "qlaw-getLawTypes"
+      },
+      method: 'GET', // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT
+      header: {
+         'Content-Type': 'application/json'
+      }, // 设置请求的 header
+      success: function(res){
+        let lawTypes = res.data.result.value
+        that.setData({lawTypes: lawTypes})
+      }
     })
-  },
-  onReady:function(){
-    // 页面渲染完成
-  },
-  onShow:function(){
-    // 页面显示
-  },
-  onHide:function(){
-    // 页面隐藏
-  },
-  onUnload:function(){
-    // 页面关闭
   }
 })

@@ -1,14 +1,6 @@
 <!--pages/laws/laws.wxml-->
 <view class="q-container">
 
-  <view class="q-topbar">
-    <input class="q-searchbox"
-           placeholder="搜索"
-           auto-focus=""
-           value="{{search}}"
-           bindchange="searchboxChange"/>
-  </view>
-
   <view class="q-laws">
     <navigator class="q-law q-list-item"
                url="../law/law?id={{item.id}}"
