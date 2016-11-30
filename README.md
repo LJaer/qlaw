@@ -11,11 +11,8 @@
 
 ###效果图
 
-<img src="http://oe53dpmqz.bkt.clouddn.com/20161128001.png" width = "300" height = "500" />
 
-<img src="http://oe53dpmqz.bkt.clouddn.com/20161128002.png" width = "300" height = "500" />
-
-<img src="http://oe53dpmqz.bkt.clouddn.com/20161128003.png" width = "300" height = "500" />
+![配置演示](pictures/20161130001.gif)
 
 ###模拟数据
 由于是模拟数据，只模拟了最上面一条的数据
